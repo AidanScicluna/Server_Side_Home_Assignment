@@ -33,5 +33,8 @@ Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show');
 //getting the form for the edit of a car
 Route::get('/cars/{id}/edit', [CarController::class, 'edit'])->name('cars.edit');
 
+//deleting car
+Route::delete('/cars/{id}', [CarController::class, 'destroy'])->name('cars.destroy');
+
 //getting all manufacturers
 Route::get('/manufacturers', [CarController::class, 'manufacturers'])->name('manufacturers.index');

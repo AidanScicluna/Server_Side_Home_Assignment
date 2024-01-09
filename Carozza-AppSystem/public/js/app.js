@@ -1,7 +1,19 @@
-document.getElementById('filter_company_id').addEventListener('change',
-function(){
-    let companyId = this.value || this.options[this.selectedIndex].value;
-    window.location.href = window.location.href.split("?")[0] + "?company_id=" + companyId;
-    //use split to eliminate this scenario of multiple concatenations:
-    //http://localhost:8000/contacts?company_id=3?company_id=2?company_id=1
+//This if statement was necessary as in show.blade.php there isn't a _filter which causes the delete to stop working
+if(document.getElementById('filter_manufacturer_id')){  
+    document.getElementById('filter_manufacturer_id').addEventListener('change', function(){
+        let companyId = this.value || this.options[this.selectedIndex].value;
+        window.location.href = window.location.href.split("?")[0] + "?manufacturer_id=" + companyId;
+    })
+}
+
+document.querySelectorAll('.btn-delete').forEach((button) => {
+    button.addEventListener('click', function(event) {
+        event.preventDefault()
+        if (confirm("Are you sure?")) {
+        let action = this.getAttribute('href')
+        let form = document.getElementById('form-delete')
+        form.setAttribute('action', action)
+        form.submit()
+        }
+    })
 })

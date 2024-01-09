@@ -58,4 +58,10 @@ class CarController extends Controller
         $Manufacturers = Manufacturer::orderBy('name')->pluck('name', 'id')->prepend('All Manufacturers', '');
         return view('cars.edit', compact('Manufacturers', 'car'));
     }
+
+    public function destroy($id){
+        $car = Car::find($id);
+        $car->delete();
+        return back()->with('message', "Car has been deleted");
+    }
 }
