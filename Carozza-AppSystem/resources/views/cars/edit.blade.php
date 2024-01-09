@@ -9,7 +9,8 @@
           <div class="card-header card-title">
             <strong>Edit Car</strong>
           </div>
-          <form action="{{ route('cars.store') }}" method="POST">
+          <form action="{{ route('cars.update', $car->id) }}" method="POST">
+            @method('PUT')
             @csrf
             @include('cars._form')
           </form>

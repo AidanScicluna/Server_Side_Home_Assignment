@@ -51,6 +51,20 @@ class CarController extends Controller
         return redirect()->route('cars.index')->with('message', 'Car has been added');
     }
 
+    public function update($id,Request $request)
+    {
+        $request->validate([
+            'model' => 'required',
+            'year' => 'required',
+            'salesperson_email' => 'required|email',
+            'manufacturer_id' => 'required|exists:manufacturers,id'
+        ]);
+
+        $car = Car::find($id);
+        $car->update($request->all());
+        return redirect()->route('cars.index')->with('message', 'Car has been update');
+    }
+
     public function edit($id)
     {
         $car = Car::find($id);

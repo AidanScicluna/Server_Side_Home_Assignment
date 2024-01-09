@@ -40,9 +40,9 @@
       <div class="form-group row">
         <label for="manufacturer_id" class="col-md-3 col-form-label">Manufacturer</label>
         <div class="col-md-9">
-          <select name="manufacturer_id" id="manufacturer_id" class="form-control" value="{{ old( 'manufacturer_id', $car->manufacturer_id ) }}"  @error('manufacturer_id') is-invalid @enderror">
+          <select name="manufacturer_id" id="manufacturer_id" class="form-control" @error('manufacturer_id') is-invalid @enderror">
             @foreach ($Manufacturers as $id => $name)
-              <option value="{{ $id }}">{{ $name }}</option>
+              <option {{ old( 'manufacturer_id', $car->manufacturer_id ) ? 'selected' : '' }} value="{{ $id }}">{{ $name }}</option>
             @endforeach
           </select>
           @error('manufacturer_id')

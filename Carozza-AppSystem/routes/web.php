@@ -33,5 +33,8 @@ Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show');
 //getting the form for the edit of a car
 Route::get('/cars/{id}/edit', [CarController::class, 'edit'])->name('cars.edit');
 
+//Update car detail (POST request)
+Route::put('/cars/{id}', [CarController::class, 'update'])->name('cars.update');
+
 //getting all manufacturers
 Route::get('/manufacturers', [CarController::class, 'manufacturers'])->name('manufacturers.index');
