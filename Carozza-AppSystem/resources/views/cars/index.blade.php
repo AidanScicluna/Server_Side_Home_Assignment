@@ -39,7 +39,7 @@
                                                 <td>{{ $car->manufacturer->name }}</td>
                                                 <td width="150">
                                                     <a href="{{ route('cars.show', $car->id)}}" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
-                                                    <a href="#" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
+                                                    <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
                                                     <form href="#" method="POST" style="display: inline-block;">
                                                         @csrf
                                                         @method('DELETE')

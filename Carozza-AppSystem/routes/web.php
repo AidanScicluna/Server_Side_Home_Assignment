@@ -24,10 +24,14 @@ Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
 //creating a new car
 Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
 
+//Create new car(POST request)
+Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
+
 //getting the details of a specific car
 Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show');
 
-Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
+//getting the form for the edit of a car
+Route::get('/cars/{id}/edit', [CarController::class, 'edit'])->name('cars.edit');
 
 //getting all manufacturers
 Route::get('/manufacturers', [CarController::class, 'manufacturers'])->name('manufacturers.index');

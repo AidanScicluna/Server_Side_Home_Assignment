@@ -50,4 +50,12 @@ class CarController extends Controller
         Car::create($request->all());
         return redirect()->route('cars.index')->with('message', 'Car has been added');
     }
+
+    public function edit($id)
+    {
+        $car = Car::find($id);
+        
+        $Manufacturers = Manufacturer::orderBy('name')->pluck('name', 'id')->prepend('All Manufacturers', '');
+        return view('cars.edit', compact('Manufacturers', 'car'));
+    }
 }
