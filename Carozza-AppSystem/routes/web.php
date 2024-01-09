@@ -36,5 +36,8 @@ Route::get('/cars/{id}/edit', [CarController::class, 'edit'])->name('cars.edit')
 //deleting car
 Route::delete('/cars/{id}', [CarController::class, 'destroy'])->name('cars.destroy');
 
+//Update car detail (POST request)
+Route::put('/cars/{id}', [CarController::class, 'update'])->name('cars.update');
+
 //getting all manufacturers
 Route::get('/manufacturers', [CarController::class, 'manufacturers'])->name('manufacturers.index');
