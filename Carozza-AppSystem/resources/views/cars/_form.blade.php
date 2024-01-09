@@ -42,7 +42,7 @@
         <div class="col-md-9">
           <select name="manufacturer_id" id="manufacturer_id" class="form-control" @error('manufacturer_id') is-invalid @enderror">
             @foreach ($Manufacturers as $id => $name)
-              <option {{ old( 'manufacturer_id', $car->manufacturer_id ) ? 'selected' : '' }} value="{{ $id }}">{{ $name }}</option>
+              <option {{ $id == old( 'manufacturer_id', $car->manufacturer_id ) ? 'selected' : '' }} value="{{ $id }}">{{ $name }}</option>
             @endforeach
           </select>
           @error('manufacturer_id')
