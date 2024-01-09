@@ -34,7 +34,7 @@
                                 <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-info">Edit</a>
                                 <a href=" {{ route('cars.destroy', $car->id) }}" class="btn-delete btn btn-outline-danger" title="Delete">Delete</a>
                                 <a href="{{ route('cars.index') }}" class="btn btn-outline-secondary">Cancel</a>
-
+                                
                                 <form id="form-delete" method="POST" style="display: none">
                                     @method('DELETE')
                                     @csrf
