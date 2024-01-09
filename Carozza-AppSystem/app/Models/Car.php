@@ -15,6 +15,6 @@ class Car extends Model
     //many cars can belong to a single manufacturer
     //many to one relationship
     public function manufacturer(){
-        return $this->belongsTo(manufacturer::class);
+        return $this->belongsTo(Manufacturer::class);
     }
 }

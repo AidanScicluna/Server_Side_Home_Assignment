@@ -10,16 +10,29 @@ class CarController extends Controller
 {
     public function index()
     {
-        return view('cars.index');
+        if( request('manufacturer_id') == null ){
+            $cars = Car::all();
+        }else{
+            $cars = Car::where( 'manufacturer_id', request('manufacturer_id') )->get();
+        }
+
+        $Manufacturers = Manufacturer::orderBy('name')->pluck('name','id')->prepend('All Manufacturers',''); 
+        return view('cars.index', compact('cars','Manufacturers')); //folder Manufacturers, view called index
     }
 
     public function create(){
-        return view('cars.create');
+        $Manufacturers = Manufacturers::orderBy('name')->pluck('name','id')->prepend('All Manufacturers',''); 
+        return view('cars.create',compact('Manufacturers'));
     }
 
     public function show($id){
         $car = Car::find($id);
         
         return view('cars.show', compact('car'));
+    }
+
+    public function manufacturers(){
+        $Manufacturers = Manufacturer::all(); 
+        return view('manufacturers.index', compact('Manufacturers')); //folder Manufacturers, view called index
     }
 }

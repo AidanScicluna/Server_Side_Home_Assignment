@@ -18,8 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//getting all car
 Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
 
+//creating a new car (still requires store to properly implement)
 Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
 
+//getting the details of a specific car
 Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show');
+
+//getting all manufacturers
+Route::get('/manufacturers', [CarController::class, 'manufacturers'])->name('manufacturers.index');
