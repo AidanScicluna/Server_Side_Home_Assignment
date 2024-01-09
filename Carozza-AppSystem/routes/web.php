@@ -21,11 +21,13 @@ Route::get('/', function () {
 //getting all car
 Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
 
-//creating a new car (still requires store to properly implement)
+//creating a new car
 Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
 
 //getting the details of a specific car
 Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show');
+
+Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
 
 //getting all manufacturers
 Route::get('/manufacturers', [CarController::class, 'manufacturers'])->name('manufacturers.index');
